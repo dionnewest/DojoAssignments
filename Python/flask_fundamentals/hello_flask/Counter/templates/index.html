@@ -1,0 +1,15 @@
+<html>
+    <head>
+       <title>Counter</title>
+    </head>
+    <body>
+      <h1>Counter</h1>
+      <h3>{{session['count']}} times</h3>
+      <form action = '/level1' method='post'>
+        <input type='submit' value='Add 2 to count'>
+      </form>
+      <form action = '/level2' method='post'>
+        <input type='submit' value='Reset count to 1'>
+      </form>
+    </body>
+</html>

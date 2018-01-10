@@ -1,0 +1,55 @@
+*{
+	/*border:1px solid black;*/
+	/*padding:2px;*/
+}
+
+.space{
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+label{
+	vertical-align: top;
+}
+
+input[type="text"]{
+	width: 200px;
+	float:right;
+	position:relative;
+	left:-5px;
+}
+
+input[type="submit"]{
+	float:right;
+	position:relative;
+	left:-5px;
+	background-color: #6881aa;
+	color:white;
+}
+
+#form, #container{
+	width:466px;
+	border:2px solid black;
+	padding: 5px;
+	height:255px;
+}
+
+#info_needed, #info_submitted{
+	text-align:left;
+	width:49%;
+	display:inline-block;
+	vertical-align: top;
+}
+
+#info_needed p, #info_submitted p{
+	margin:2px;
+}
+
+h2{
+	text-decoration:underline;
+}
+
+.go_back{
+	margin-top:100px;
+}
+

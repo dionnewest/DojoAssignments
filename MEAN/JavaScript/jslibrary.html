@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Library</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var _ = {
+		   map: function(arr, iteratee) {
+	   			let newArr = [];
+	   			for (var i = 0; i < arr.length; i++){
+	   				newArr.push(iteratee(arr[i]));
+	   			}
+	   			return newArr;
+		   },
+		   reduce: function(arr, iteratee){ 
+		     var memo = arr[0]
+		     for (var i = 1; i < arr.length; i++){
+		     	memo = iteratee(memo, arr[i]);
+		     }
+		     return memo;
+		   },
+		   find: function(arr, predicate) {   
+		   		for (var i = 0; i< arr.length; i++){
+		   			if(predicate(arr[i]) == true){
+		   				return arr[i];
+		   			}
+		   		}
+		   },
+		   filter: function(arr, predicate) { 
+		   		let newArr = []
+		   		for (var i = 0; i< arr.length; i++){
+		   			if(predicate(arr[i]) == true){
+		   				newArr.push(arr[i]);
+		   			}
+		   		}
+		   		return newArr;
+		   },
+		   reject: function(arr, predicate) { 
+		    	let newArr = []
+		   		for (var i = 0; i< arr.length; i++){
+		   			if(predicate(arr[i]) == false){
+		   				newArr.push(arr[i]);
+		   			}
+		   		}
+		   		return newArr;
+		   }
+		}
+		var arr1 = _.map([2,2,3], function(num){return num * 5; });
+		console.log(arr1)
+		var arr2 = _.map([2,2,3], function(num){return num + 5; });
+		console.log(arr2)
+		var arr5 = _.reduce([1,2,3], function(memo, num){return memo - num;});
+		console.log(arr5)
+		var arr6 = _.reduce([1,2,4], function(memo, num){return memo * num;});
+		console.log(arr6)
+		var arr7 = _.find([1,2,3,4,5,6,7,8,9], function(num){return num % 5 == 0; });
+		console.log(arr7)
+		var arr8 = _.filter([1,2,3,4,5,6,7,8,9], function(num){return num % 2 == 0; });
+		console.log(arr8)
+		var arr9 = _.reject([1,2,3,4,5,6,7,8,9], function(num){return num % 2 == 0; });
+		console.log(arr9)
+// you just created a library with 5 methods!
+	</script>
+</body>
+</html>

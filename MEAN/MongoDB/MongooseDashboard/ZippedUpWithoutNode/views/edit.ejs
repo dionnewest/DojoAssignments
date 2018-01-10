@@ -1,0 +1,44 @@
+<html>
+        <head>
+            <title>Want to add a Mongoose?</title>
+            <style type='text/css'>
+                form, label{
+                    display: block;
+                    margin: 5px;
+                    width: 275px;
+                }
+                form label input{
+                    float: right;
+                    width: 175px;
+                }
+                form label textarea{
+                    margin-left: 17px;
+                    width: 175px;
+                }
+            </style>
+        </head>
+        <body>
+            <% mongoose.forEach(function(mongoose){ %>
+            <h1>Update Profile for <%=mongoose.name%></h1>
+            <form action='/mongooses/<%=mongoose.id%>' method='post'>
+                <label>Name:
+                    <input type="text" name="name" value="<%=mongoose.name%>">
+                </label>
+                <label>Height:
+                    <input type="text" name="height" value="<%=mongoose.height%>">
+                </label>
+                <label>Weight:
+                    <input type="text" name="weight" value="<%=mongoose.weight%>">
+                </label>
+                <label>Color:
+                    <input type="text" name="color" value="<%=mongoose.color%>">
+                </label>
+                <label style = "width:1000px" >Description:
+                    <textarea name="description"><%=mongoose.description%></textarea>
+                </label>
+                <input style = "margin-top: 5px" type="submit" value="Update this Mongoose">
+            </form>
+            <% }) %>
+            <a href='/'><button>Return to the Mongoose Dashboard</button></a>
+        </body>
+    </html>

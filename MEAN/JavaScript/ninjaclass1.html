@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Class I</title>
+</head>
+<body>
+	<h1>Ninja Class I</h1>
+	<script type="text/javascript">
+		function Ninja(name){
+			let speed = 3
+			let strength = 3
+			const privateMethod = function() {
+				console.log(this);
+			}
+			this.name = name;
+			this.health = 100
+			this.sayName = function(){
+				console.log("This Ninja's name is: "+ this.name)
+			}
+			this.showStats = function(){
+				console.log(this.name + "'s health is: " + this.health + ". His/her strength is: " + strength + ", and his/her speed is: " + speed + ".")
+			}
+			this.drinkShake = function(){
+				this.health += 10
+			}
+		}
+		const ninja1 = new Ninja("Dionne");
+		ninja1.sayName();
+		ninja1.showStats();
+		ninja1.drinkShake();
+		ninja1.showStats();
+	</script>
+</body>
+</html>

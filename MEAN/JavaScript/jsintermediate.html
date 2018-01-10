@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Intermediate</title>
+</head>
+<body>
+	<h1>Part I</h1>
+	<script>
+		function starString(x){
+			let y = "*";
+			let z = y;
+			for (let i = 0; i < x - 1; i++){
+				y += z;
+			}
+			return y;
+		}
+		let stars = starString(8)
+		console.log(stars)
+
+		function draw_stars(arr){
+			for (let i = 0; i < arr.length; i++){
+				if (typeof arr[i] === "string"){
+					let y = arr[i][0].toLowerCase();
+					let z = y;
+					for (let a = 0; a < arr[i].length - 1; a++){
+						y += z;
+					}
+				console.log(y);
+				}
+				else{
+					let y = "*";
+					let z = y;
+					for (let a = 0; a < arr[i] - 1; a++){
+					y += z;
+					}
+				console.log(y);
+				}
+			}
+		}
+		let arr = [4, 6, 1, 3, 5, 7, 25];
+		draw_stars(arr)
+
+		arr1 = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]
+		draw_stars(arr1)
+	</script>
+</body>
+</html>

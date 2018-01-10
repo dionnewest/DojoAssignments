@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Desinations</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<p><a href='/travel'>Home</a></p>
+	<p><a href='/main'>Logout</a></p>
+	<h2>{{destination}}</h2>
+	<p>Planned By: {{created_by_name}}</p>
+	<p>Descrtiption: {{description}}</p>
+	<p>Travel Date From: {{date_from}}</p>
+	<p>Travel Date To: {{date_to}}</p>
+	<h2>Other users' joining the trip:</h2>
+	{% for i in all_travelers %}
+		<p>{{i.name}}</p>
+	{% endfor %}
+
+</body>
+</html>

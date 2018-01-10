@@ -1,0 +1,19 @@
+/**{
+	border:1px solid black;
+}*/
+
+form{
+	width:45%;
+	display:inline-block;
+	vertical-align: top;
+	border:2px solid black;
+}
+
+label{
+	display:block;
+	margin:2px;
+}
+
+input{
+	float:right;
+}

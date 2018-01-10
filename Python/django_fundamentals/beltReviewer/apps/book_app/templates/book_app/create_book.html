@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="/books">Home</a>
+            <a href="/">Logout</a>
+        </div>
+        <p>Add a new book Title and review</p>
+        <form action="books/create" method="post">
+            {% csrf_token %}
+            Book title: <input type="text" name="title">
+            <p>Author</p>
+            <div class="indent">
+                Chose a author <select class="" name="author">
+                    {% for writers in books %}
+                        <option value="{{writers.author}}">{{writers.author}}</option>
+                    {% endfor %}
+                </select>
+                Or add a new author: <input type="text" name="author" value="">
+            </div>
+            Review:
+            <textarea name="review" rows="8" cols="80"></textarea>
+            Rating: <select class="rating" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+            </select>
+            <input type="submit"  value="submit">
+        </form>
+    </body>
+</html>

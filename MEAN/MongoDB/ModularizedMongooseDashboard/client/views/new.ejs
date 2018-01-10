@@ -1,0 +1,42 @@
+<html>
+        <head>
+            <title>Want to add a Mongoose?</title>
+            <style type='text/css'>
+                form, label{
+                    display: block;
+                    margin: 5px;
+                    width: 275px;
+                }
+                form label input{
+                    float: right;
+                    width: 175px;
+                }
+                form label textarea{
+                    margin-left: 17px;
+                    width: 175px;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Add a New Mongoose</h1>
+            <form action='/mongeese' method='post'>
+                <label>Name:
+                    <input type="text" name="name">
+                </label>
+                <label>Height:
+                    <input type="text" name="height">
+                </label>
+                <label>Weight:
+                    <input type="text" name="weight">
+                </label>
+                <label>Color:
+                    <input type="text" name="color">
+                </label>
+                <label style = "width:1000px" >Description:
+                    <textarea name="description"></textarea>
+                </label>
+                <input style = "margin-top: 5px" type="submit" value="Add new Mongoose">
+            </form>
+            <a href='/'><button>Return to the Mongoose Dashboard</button></a>
+        </body>
+    </html>

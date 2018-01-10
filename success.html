@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success!</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Hello, {{user}}!</h1>
+		<p>{{message}}</p>
+	</div>
+	<p><a href="/main">Logout</a></p>
+	<p>Your Trip Schedules</p>
+	<table>
+		<thead>
+			<td>Destination</td>
+			<td>Travel Start Date</td>
+			<td>Travel End Date</td>
+			<td>Plan</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Paris, France</td>
+				<td>May 26, 2015</td>
+				<td>May 30, 2015</td>
+				<td>Stroll at the Eifel Tower</td>
+			<tr>	
+		</tbody>
+	</table>
+	<p>Other User's Travel Plans</p>
+	<table>
+		<thead>
+			<td>Name</td>
+			<td>Destination</td>
+			<td>Travel Start Date</td>
+			<td>Travel End Date</td>
+			<td>Do You Want to Join?</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Stephen King</td>
+				<td>Singapore</td>
+				<td>May 26, 2015</td>
+				<td>May 30, 2015</td>
+				<td>Join</td>
+			<tr>	
+		</tbody>
+	</table>
+	<p><a href="#">Add Travel Plan</a></p>
+</body>
+</html>

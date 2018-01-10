@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Quoting Dojo</title>
+        <style type="text/css">
+            form{
+                width: 240px;
+                margin:5px;
+            }
+            label, input{
+                margin:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Quoting Dojo</h1>
+        <form action="/post_quote" method="post">
+            <label>Your Name:
+                <input type="text" name="name">
+            </label>
+            <label>Your Quote:
+                <textarea type="text" name="quote"></textarea>
+            </label>
+            <input type="submit" value="Add my quote!">
+            <a href="/quotes"><button>Skip to quotes</button></a>
+        </form>
+    </body>
+</html>

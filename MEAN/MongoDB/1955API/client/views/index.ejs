@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Who was born in 1955</title>
+    </head>
+    <body>
+        <h1>People born in 1955</h1>
+        <% people.forEach(function(person){ %>
+            <a href="/<%= person.name %>"><h3><%= person.name %></h3></a>
+        <% }) %>
+    </body>
+</html>

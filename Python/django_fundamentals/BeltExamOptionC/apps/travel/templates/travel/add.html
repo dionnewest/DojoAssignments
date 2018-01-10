@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Desinations</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+		form{
+			width:300px;
+		}
+
+		label{
+			display:flex;
+			margin:2px;
+			justify-content: space-between;
+		}
+	</style>
+</head>
+<body>
+	<p><a href='/travel'>Home</a></p>
+	<p><a href='/main'>Logout</a></p>
+	
+	<h1>Add a Trip</h1>
+	<form action='add_trip' method='POST'>
+		{%csrf_token%}
+		<label>Destination:
+			<input type='text' name='destination'>
+		</label>
+		<label>Description:
+			<input type='text' name='description'>
+		</label>
+		<label>Travel Date From:
+			<input type='date' name='date_from'>
+		</label>
+		<label>Travel Date To:
+			<input type='date' name='date_to'>
+		</label>
+		<input type='submit' value='Add'>
+	</form>
+	{% if messages %}
+        {% for message in messages %}
+        	<p> {{message}} </p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Great # Game</title>
+	</head>
+	<body>
+		<h1>Welcome to the Great Number Game!</h1>
+		<h4>I am thinking of a number between 1 and 100</h4>
+		<h4><%= message %></h4>
+		<form action='/number' method='POST'>
+			<input type="text" name="number">
+			<input type='submit' value='Submit'>
+		</form>
+		<form style="margin-top:5px" action='/reset' method='post'>
+			<input type='submit' value='Reset'>
+		</form>
+	</body>
+</html>

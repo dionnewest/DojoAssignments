@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ninja's Getting Money</title>
+		<style type="text/css">
+			.place{
+				border:2px solid black;
+				height:100px;
+				width:20%;
+				margin:2%;
+				display: inline-block;
+				vertical-align: top;
+				text-align:center;
+			}
+
+			.place h4{
+				margin:7px 0px;
+			}
+
+			.place p{
+				font-size: 14px;
+			}
+
+			textarea{
+				width:99%;
+				height:100px;
+				margin-top:2px;
+			}
+
+			.tab{
+				margin-left:2%;
+			}
+		</style>
+	</head>
+	<body>
+		<form action = '/gold' method = 'POST'>
+			{% csrf_token %}
+			<label for="gold">Your Gold:</label>
+			<input type="text" name="gold" value="{{request.session.count}}">
+			<input type="submit" value="Reset Please">
+		</form>
+		<div class='place'>
+			<h4>Farm</h4>
+			<p>(earns 10-20 golds)</p>
+			<form action='/farm' method = 'POST'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!" name="farm">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>Cave</h4>
+			<p>(earns 5-10 golds)</p>
+			<form action='/cave' method = 'POST'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!" name="cave">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>House</h4>
+			<p>(earns 2-5 golds)</p>
+			<form action='/house' method = 'POST'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!" name="house">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>Casino</h4>
+			<p>(earns/takes 0-50 golds)</p>
+			<form action='/casino' method = 'POST'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!" name="casino">
+			</form>
+		</div>
+		<form class='tab'>
+			<label for="actions">Activities:</label>
+			<textarea>{{request.session.message|safe}}</textarea>
+		</form>
+	</body>
+</html>

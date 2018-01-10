@@ -1,0 +1,31 @@
+/**{
+	border: 1px solid black;
+}*/
+
+.place{
+	border:2px solid black;
+	height:100px;
+	width:20%;
+	margin:2%;
+	display: inline-block;
+	vertical-align: top;
+	text-align:center;
+}
+
+.place h4{
+	margin:7px 0px;
+}
+
+.place p{
+	font-size: 14px;
+}
+
+textarea{
+	width:95%;
+	height:100px;
+	margin-top:2px;
+}
+
+.tab{
+	margin-left:2%;
+}

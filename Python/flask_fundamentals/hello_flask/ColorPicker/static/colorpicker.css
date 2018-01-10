@@ -1,0 +1,26 @@
+p{
+	color:red;
+}
+
+#container{
+	width:500px;
+	height:300px;
+	margin:0px auto;
+}
+
+h1, p{
+	text-align:center;
+}
+
+.color{
+	margin:5px auto;
+	width:200px;
+}
+
+.color input {
+    float:right;
+}
+
+.button{
+	margin-left:300px;
+}

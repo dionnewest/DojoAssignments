@@ -1,0 +1,14 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+
+img{
+	width:11%;
+	min-height:100%;
+	display:inline-block;
+	vertical-align: top;
+	margin-left:-2px;
+}
+
+

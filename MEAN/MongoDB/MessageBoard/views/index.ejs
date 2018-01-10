@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>The Dojo Message Board</title>
+        <style type='text/css'>
+            #header{
+                border-bottom: 2px solid red;
+            }
+            .message h2, .new_comments h3, .italics{
+                margin:10px;
+                font-style: italic;
+            }
+            .name{
+                margin-left: 28px;
+                margin-bottom: 3px;
+                width: 175px;
+            }
+            .post_button{
+                width:100px;
+                margin-left:465px;
+            }
+            .message textarea{
+                height: 50px;
+            }
+            .new_comments, .posted_comment{
+                margin-left:50px;
+            }
+            label{
+                display:block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id='header'>
+            The Dojo Message Board
+        </h1>
+        <div class='message'>
+            <h2>Post A New Message</h2>
+            <form action='/post_message' method='post'>
+                <label>Name:
+                    <input class='name' type='text' name='name'>
+                </label>
+                <label>Message:
+                    <textarea style='margin-left: 11px; width:500px;' name='message'></textarea>
+                </label>
+                <input class='post_button' type="submit" value="Post Message">
+            </form>
+            <h2>All Messages</h2>
+        </div>
+        <% for(let message of messages) { %>
+            <div class='message'>
+                <h3>Name: <%= message.name %></h3>
+                <h3>Message: <%= message.message %></h3>
+                <h3 class='italics'>All Comments</h3>
+                <% for(let comment of message.comments) { %>
+                    <div class='posted_comment'>
+                        <p>Name: <%= comment.name %></p>
+                        <p>Comment: <%= comment.comment %></p>
+                    </div>
+                <%}%>
+                <div class='new_comments'>
+                    <h3>Post A New Comment</h3>
+                    <form action='/post_comment/<%= message._id %>' method='post'>
+                        <label>Name:
+                            <input class='name' type='text' name='name'>
+                        </label>
+                        <label>Comment:
+                            <textarea style='margin-left: 3px; width:450px;' name='comment'></textarea>
+                        </label>
+                        <input style='width:100px; margin-left:415px;' type="submit" value="Post Comment">
+                    </form>
+                </div>
+            </div>
+        <%}%>
+    </body>
+</html>

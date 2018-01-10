@@ -1,0 +1,35 @@
+<!-- #OPTION A -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success!</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+		td{
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Success! Welcome, {{user_name}}!</h1>
+	<p>{{message}}</p>
+	<p><a href="/logout">Logout</a></p>
+	<a href='#'>New Customer/Inspection</a>
+	<form action="/inspection" method="POST">
+		<label>Client Name:
+			<input type='text' name='client_name'>
+		</label>
+	</form>
+	<a href='#'>Scheduled Inspections</a>
+	<a href='#'>Completed Inspections</a>
+	
+	{% if messages %}
+        {% for message in messages %}
+        	<p> {{message}} </p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

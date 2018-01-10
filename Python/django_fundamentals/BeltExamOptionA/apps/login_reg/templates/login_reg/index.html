@@ -1,0 +1,71 @@
+<!-- page to be displayed on: http://localhost:8000 -->
+<!-- #OPTION A -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to the Friends App!</title>
+	<style type='text/css'>
+		.left, .right{
+			width:45%;
+			display:inline-block;
+			vertical-align: top;
+			border:2px solid black;
+		}
+
+		label{
+			display:block;
+			margin:2px;
+		}
+
+		input{
+			float:right;
+		}
+	</style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div class='left'>
+    	<h1>Register</h1>
+	    <form action='register' method="POST">
+			{%csrf_token%}
+			<label>Name:
+				<input type='text' name='name'>
+			</label>
+			<label>Alias:
+				<input type='text' name='alias'>
+			</label>
+			<label>Email:
+				<input type='text' name='email'>
+			</label>
+			<label>Password:
+				<input type='text' name='password'>
+			</label>
+			<label>Confirm Password:
+				<input type='text' name='confirm_password'>
+			</label>
+			<label>Date of Birth:
+				<input type='date' name='date_of_birth'>
+			</label>
+			<input type='submit' value='Register'>
+		</form>
+    </div>
+    <div class='right'>
+    	<h1>Login</h1>
+        <form action='login' method="POST">
+            {% csrf_token %}
+            <label>Email Address
+                <input type="text" name='email' value="">
+            </label>
+            <label>Password
+                <input type="text" name="password" value="12345678">
+            </label>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p> {{message}} </p>
+        {% endfor %}
+        {% endif %}
+    </body>
+</html>

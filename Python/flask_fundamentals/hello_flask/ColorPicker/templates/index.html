@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Picker</title>
+	<link rel='stylesheet' type='text/css' href="{{url_for('static', filename='colorpicker.css')}}">>
+</head>
+<body>
+	<div id=container style="background-color:rgb({{red}}, {{green}}, {{blue}})">
+		<form action="/color" method="post">	
+			<h1>Enter your color values below:</h1>
+			<div class="color">
+				<label for="red">Red:</label>
+				<input type="text" name="red">
+			</div>
+			<div class="color">
+				<label for="green">Green:</label>
+				<input type="text" name="green">
+			</div>
+			<div class="color">
+				<label for="blue">Blue:</label>
+				<input type="text" name="blue">
+			</div>
+			<p>* All values must be between 1 and 255</p>
+			<input type="submit" value="Show my color!" class="button">
+		</form>
+	</div>
+</body>
+</html>

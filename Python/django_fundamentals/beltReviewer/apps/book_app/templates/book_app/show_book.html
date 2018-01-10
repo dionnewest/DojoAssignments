@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Book Details</title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="/books">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+        <h3>{{ book.title }}</h3>
+        <p>Author: {{ book.author }}</p>
+        <div id="reviews">
+            <h2>Reviews:</h2>
+            {% for review in reviews %}
+            <hr>
+            Rating: {{ review.rating }}/5
+            <a href="users/{{ review.reviewer.id }}">{{review.reviewer.alias}}</a> says: {{review.content}}
+            <p>Posted on: {{ review.created_at }}</p>
+                {% if review.reviewer.id == req.session.id %}
+                <a href="/delete/{{review.id}}">Delete</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <form action="/books/createReview" method="post">
+            {% csrf_token %}
+            <h4>Add a Review:</h4>
+            <textarea name="content" rows="4" cols="60"></textarea>
+            Rating: <select class="rating" name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <input type="submit"  value="Submit Review">
+        </form>
+    </body>
+</html>

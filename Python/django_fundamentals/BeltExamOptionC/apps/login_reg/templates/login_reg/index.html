@@ -1,0 +1,65 @@
+<!-- page to be displayed on: http://localhost:8000 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to the Travel App!</title>
+	<style type='text/css'>
+		.left, .right{
+			width:45%;
+			display:inline-block;
+			vertical-align: top;
+			border:2px solid black;
+		}
+
+		label{
+			display:block;
+			margin:2px;
+		}
+
+		input{
+			float:right;
+		}
+	</style>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div class='left'>
+    	<h1>Register</h1>
+	    <form action='register' method="POST">
+			{%csrf_token%}
+			<label>Name:
+				<input type='text' name='name'>
+			</label>
+			<label>Username:
+				<input type='text' name='user'>
+			</label>
+			<label>Password:
+				<input type='text' name='password'>
+			</label>
+			<label>Confirm Password:
+				<input type='text' name='confirm_password'>
+			</label>
+			<input type='submit' value='Register'>
+		</form>
+    </div>
+    <div class='right'>
+    	<h1>Login</h1>
+        <form action='login' method="POST">
+            {% csrf_token %}
+            <label>Username
+                <input type="text" name='user' value="">
+            </label>
+            <label>Password
+                <input type="text" name="password" value="">
+            </label>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p> {{message}} </p>
+        {% endfor %}
+        {% endif %}
+    </body>
+</html>

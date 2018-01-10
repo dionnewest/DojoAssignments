@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success!</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+		td{
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Hello, {{user_name}}!</h1>
+		<p>{{message}}</p>
+	</div>
+	<p><a href="/main">Logout</a></p>
+	<p>Your Trip Schedules</p>
+	<table>
+		<thead>
+			<td>Destination</td>
+			<td>Travel Start Date</td>
+			<td>Travel End Date</td>
+			<td>Plan</td>
+			<td>Flake Out</td>
+		</thead>
+		<tbody>
+			{% for i in users_trips %}
+			<tr>
+				<td><a href="/travel/destination/{{i.id}}">{{i.destination}}</a></td>
+				<td>{{i.date_from}}</td>
+				<td>{{i.date_to}}</td>
+				<td>{{i.description}}</td>
+				<td><a href="travel/remove/{{i.id}}">flake out</a></td>
+			<tr>
+			{% endfor %}	
+		</tbody>
+	</table>
+	<p>Other User's Travel Plans</p>
+	<table>
+		<thead>
+			<td>Name</td>
+			<td>Destination</td>
+			<td>Travel Start Date</td>
+			<td>Travel End Date</td>
+			<td>Do You Want to Join?</td>
+		</thead>
+		<tbody>
+			{% for i in others_trips %}
+			<tr>
+				<td>{{i.created_by.name}}</td>
+				<td><a href="/travel/destination/{{i.id}}">{{i.destination}}</a></td>
+				<td>{{i.date_from}}</td>
+				<td>{{i.date_to}}</td>
+				<td><a href="/travel/join/{{i.id}}">join</a></td>
+			<tr>
+			{% endfor %}	
+		</tbody>
+	</table>
+	<p><a href="/travel/add">Add Travel Plan</a></p>
+</body>
+</html>

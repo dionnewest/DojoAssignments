@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Query</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+</head>
+<body>
+	<button id="btn1">Button 1</button>
+	<button id="btn2">Button 2</button>
+	<p id="name"></p>
+	<script type="text/javascript">
+		// let $Dojo = function(id){
+		// 	this.myId = document.getElementById(id);
+		// 	this.click = function (displayName){
+		// 		this.myId.addEventListener('click', displayName);
+		// 	}
+		// }
+		// document.getElementById('btn1').addEventListener('click', displayName);
+		// document.getElementById('btn2').addEventListener('mouseover', alertName);
+		// function displayName() {
+		// 	let person = "Dionne"
+		// 	console.log(person);
+		// 	let name = document.createElement("h1");
+		// 	name.innerHTML = person;
+		// 	document.getElementById("name").appendChild(name);
+		// 	return name;
+		// }
+		// function alertName() {
+		// 	let person = "Dionne"
+		// 	console.log(person);
+		// 	alert (person);
+		// 	document.getElementById("name").appendChild(name);
+		// 	return name;
+		// }
+		function $Dojo(id) {
+		    this.myId = document.getElementById(id);
+		    this.click = function (callback) {
+		        this.myId.addEventListener("click", callback);
+		    };
+		    this.hover = function (hoverin, hoverout) {
+		        this.myId.addEventListener("mouseover", hoverin);
+		        this.myId.addEventListener("mouseout", hoverout);
+		    };
+		    return this;
+		}
+		$Dojo("btn1").myId.click(function {console.log("The button was clicked!") });
+		// $Dojo("btn2").hover(function() { console.log("The button was hovered on!") });
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+        <head>
+            <title>Want to add a Mongoose?</title>
+            <style type='text/css'>
+                
+            </style>
+        </head>
+        <body>
+            <% mongoose.forEach(function(mongoose){ %>
+            <h1><%=mongoose.name%>'s Profile</h1>
+            <p>Height: <%=mongoose.height%></p>
+            <p>Weight: <%=mongoose.weight%></p>
+            <p>Color: <%=mongoose.color%></p>
+            <p>Description: <%=mongoose.description%></p>
+            <a href='/mongooses/edit/<%=mongoose.id%>'><button>Update Info about this Mongoose</button></a>
+            <a href='/mongooses/destroy/<%=mongoose.id%>'><button>Delete this Mongoose</button></a>
+            <% }) %>
+            <br><a href='/'><button>Return to the Mongoose Dashboard</button></a>
+        </body>
+    </html>

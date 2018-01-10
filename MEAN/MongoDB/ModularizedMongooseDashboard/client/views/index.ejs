@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Who doesn't love a Mongoose?</title>
+        <style type='text/css'>
+            .each{
+                border-bottom: 2px solid navy;
+                width: 500px;
+            }
+            .each p{
+                margin-top:-20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to the Mongoose Dashboard!</h1>
+        <% mongeese.forEach(function(mongoose){ %>
+        <div class='each'>
+            <a href="/mongeese/<%=mongoose.id%>"><h3><%=mongoose.name%></h3></a>
+            <p><%=mongoose.description%></p>
+        </div>
+        <% }) %>
+        <a href='/new'><button>Add A New Mongoose</button></a>
+    </body>
+</html>

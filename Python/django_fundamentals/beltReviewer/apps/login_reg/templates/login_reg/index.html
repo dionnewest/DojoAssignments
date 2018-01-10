@@ -1,0 +1,62 @@
+<!-- HTML for login/registration-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type='text/css'>
+            form{
+                width:45%;
+                display:inline-block;
+                vertical-align: top;
+                border:2px solid black;
+            }
+
+            label{
+                display:block;
+                margin:2px;
+            }
+
+            input{
+                float:right;
+            }
+        </style>
+        <title>Login and Registration</title>
+    </head>
+    <body>
+        <form class="" action="/reg" method="post">
+            {% csrf_token %}
+            <label>Full Name
+                <input type="text" name="name" value="">
+            </label>
+            <label>Alias
+                <input type="text" name="alias" value="">
+            </label>
+            <label>Email Address
+                <input type="text" name="email" value="">
+            </label>
+            <label>Password
+                <input type="text" name="password" value="">
+            </label>
+            <label>Password Confirmation
+                <input type="text" name="confirm_password" value="">
+            </label>
+            <input type="submit" value="submit">
+        </form>
+
+        <form class="" action="/login" method="POST">
+            {% csrf_token %}
+            <label>Email Address
+                <input type="text" name="email" value="">
+            </label>
+            <label>Password
+                <input type="text" name="password" value="123456789">
+            </label>
+            <input type="submit" value="Login">
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+        <p> {{message}} </p>
+        {% endfor %}
+        {% endif %}
+    </body>
+</html>

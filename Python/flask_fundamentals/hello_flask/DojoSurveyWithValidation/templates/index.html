@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Dojo Suvey with Validation</title>
+		<link rel='stylesheet' type='text/css' href="{{url_for('static', filename='dojosurvey.css')}}">
+	</head>
+	<body>
+        <form id="form" action='/result' method='post'>
+        	<div class='space'>
+        		<label for='name'>Your Name: </label>
+        		<input type='text' name='name' value={{name}}>
+    		</div>
+        	<div class='space'>
+        		<label for='location'>Dojo Location </label>
+        		<input type='text' name='location' value={{location}}>
+    		</div>
+        	<div class='space'>
+        		<label for='language'>Favorite Language:</label>
+        		<input type='text' name='language' value={{language}}>
+    		</div>
+        	<div class='space'>
+        		<label for='comment'>Comment (optional):</label>
+        		<textarea placeholder='Enter comment here:' rows='10' cols='50' name='comment'></textarea>
+    		</div>
+    		<div class='space'>
+        		<input type='submit' value='Button'>
+    		</div>
+    	</form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+	</body>
+</html>

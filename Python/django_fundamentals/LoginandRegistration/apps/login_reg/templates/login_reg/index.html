@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+	<style type='text/css'>
+		form{
+			width:300px;
+			/*display:inline-block;
+			vertical-align: top;*/
+			border:2px solid black;
+			margin:20px;
+			padding:20px;
+		}
+		label{
+			display:block;
+			margin:2px;
+		}
+		input{
+			float:right;
+		}
+	</style>
+</head>
+<body>
+	<h1>Registration</h1>
+	<form action='/register' method='POST'>
+		{%csrf_token%}
+		<label>First Name:
+			<input type='text' name='first_name'>
+		</label>
+		<label>Last Name:
+			<input type='text' name='last_name'>
+		</label>
+		<label>Email:
+			<input type='text' name='email'>
+		</label>
+		<label>Password:
+			<input type='text' name='password'>
+		</label>
+		<label>Confirm Password:
+			<input type='text' name='confirm_password'>
+		</label>
+		<input type='submit' value='Register'>
+	</form>
+	<form action='login' method='POST'>
+		{%csrf_token%}
+		<label>Email:
+			<input type='text' name='email'>
+		</label>
+		<label>Password:
+			<input type='text' name='password'>
+		</label>
+		<input type='submit' value='Login'>
+	</form>
+	{% if messages %}
+        {% for message in messages %}
+        	<p> {{message}} </p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

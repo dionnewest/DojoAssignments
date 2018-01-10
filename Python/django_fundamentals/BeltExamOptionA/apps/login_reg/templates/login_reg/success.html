@@ -1,0 +1,56 @@
+<!-- #OPTION A -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success!</title>
+	<style type='text/css'>
+		table, thead, td, tr{
+			border:1px solid black;
+		}
+		td{
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Success! Welcome, {{user_name}}!</h1>
+	<p>{{message}}</p>
+	<p><a href="/logout">Logout</a></p>
+	<p>Here is the list of your friends:</p>
+	<table>
+		<thead>
+			<td>Alias</td>
+			<td>Action</td>
+		</thead>
+		<tbody>
+			{% for i in users_friends %}
+			<tr>
+				<td>{{i.friend.alias}}</td>
+				<td><a href="/user/{{i.id}}">View Profile</a> <a href="/remove_friend/{{i.friend.id}}/{{user_id}}">Remove as Friend</a></td>
+			<tr>
+			{% endfor %}	
+		</tbody>
+	</table>
+	<p>Other Users not on your friend's list:</p>
+	<table>
+		<thead>
+			<td>Alias</td>
+			<td>Action</td>
+		</thead>
+		<tbody>
+			{% for i in not_friends %}
+			<tr>
+				<td><a href="/user/{{i.id}}">{{i.alias}}</a></td>
+				<td><a href="/add_friend/{{i.id}}/{{user_id}}"><input type='button' name='add_friend' value='Add as Friend' method='POST'></a></td>
+			<tr>
+			{% endfor %}	
+		</tbody>
+	</table>
+	{% if messages %}
+        {% for message in messages %}
+        	<p> {{message}} </p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

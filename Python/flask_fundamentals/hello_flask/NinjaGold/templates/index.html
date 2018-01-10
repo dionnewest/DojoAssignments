@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ninja's Getting Money</title>
+		<link rel='stylesheet' type='text/css' href="{{url_for('static', filename='NinjaGold.css')}}">
+	</head>
+	<body>
+		<div>
+			<form action = '/process_money' method = 'post'>
+				{% csrf_token %}
+				<label for="gold">Your Gold</label>
+				<input type="text" name="gold" value="{{gold}}">
+			</form>
+			<form action = '/reset' method='post'>
+				{% csrf_token %}
+				<input type="submit" value="Reset Please">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>Farm</h4>
+			<p>(earns 10-20 golds)</p>
+			<form action = '/farm' method = 'post'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>Cave</h4>
+			<p>(earns 5-10 golds)</p>
+			<form action = '/cave' method = 'post'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>House</h4>
+			<p>(earns 2-5 golds)</p>
+			<form action = '/house' method = 'post'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!">
+			</form>
+		</div>
+		<div class='place'>
+			<h4>Casino</h4>
+			<p>(earns/takes 0-50 golds)</p>
+			<form action = '/casino' method = 'post'>
+				{% csrf_token %}
+				<input type="Submit" value="Find Gold!">
+			</form>
+		</div>
+		<form class='tab'>
+			<label for="actions">Activities:</label><br>
+			<textarea>{{message|safe}}</textarea>
+		</form>
+	</body>
+</html>

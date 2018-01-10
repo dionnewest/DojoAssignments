@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Dojo Suvey: Results with Validation</title>
+		<link rel='stylesheet' type='text/css' href="{{url_for('static', filename='dojosurvey.css')}}">
+	</head>	
+	<body id="container">
+		<h2>Submitted Info</h2>
+		<div id="info_needed">
+			<p>Name:</p>
+			<p>Dojo Location:</p>
+			<p>Favorite Language</p>
+			<p>Comment</p>
+		</div>
+		<div id="info_submitted">
+			<p>{{name}}</p>
+			<p>{{location}}</p>
+			<p>{{language}}</p>
+			<p>{{comment}}</p>
+		</div>
+		<form action='/', method='post'>
+			<input class='space go_back' type='submit' value='Go Back' name='go_back'>
+		</form>
+		{% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+	</body>
+</html>

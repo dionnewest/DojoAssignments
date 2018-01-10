@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Quotes Page</title>
+        <style type='text/css'>
+            #quote_box{
+                border-bottom: 2px solid black;
+                width: 400px;
+            }
+            .right{
+                text-align:right;
+            }
+            .left{
+                text-align:left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Here are the awesome quotes!</h1>
+        <% quotes.forEach(function(quote){ %>
+        <div id=quote_box>
+            <p class=left><%=quote.quote%></p>
+            <p class=right><%=quote.name%></p>
+        </div>
+        <% }) %>
+    </body>
+</html>

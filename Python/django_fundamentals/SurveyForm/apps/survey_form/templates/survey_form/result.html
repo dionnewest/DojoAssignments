@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Dojo Suvey: Results</title>
+		<style type='text/css'>
+            *{
+                /*border:1px solid black;*/
+                /*padding:2px;*/
+            }
+
+            .header{
+            	width:466px;
+                border:2px solid black;
+                padding: 5px;
+            }
+
+            .space{
+                padding-top:3px;
+                padding-bottom:3px;
+            }
+
+            label{
+                vertical-align: top;
+            }
+
+            input[type="text"]{
+                width: 200px;
+                float:right;
+                position:relative;
+                left:-5px;
+            }
+
+            input[type="submit"]{
+                float:right;
+                position:relative;
+                left:-5px;
+                background-color: #6881aa;
+                color:white;
+            }
+
+            #form, #container{
+                width:466px;
+                border:2px solid black;
+                padding: 5px;
+                height:255px;
+            }
+
+            #info_needed, #info_submitted{
+                text-align:left;
+                width:49%;
+                display:inline-block;
+                vertical-align: top;
+            }
+
+            #info_needed p, #info_submitted p{
+                margin:2px;
+            }
+
+            h2{
+                text-decoration:underline;
+            }
+
+            .go_back{
+                margin-top:80px;
+            }
+        </style>
+	</head>	
+	<body>
+		<p class='header'>Thanks for submitting this form! You have submitted this form {{request.session.count}} times now.</p>
+		<div id='container'>
+			<h2>Submitted Info</h2>
+			<div id="info_needed">
+				<p>Name:</p>
+				<p>Dojo Location:</p>
+				<p>Favorite Language</p>
+				<p>Comment</p>
+			</div>
+			<div id="info_submitted">
+				<p>{{request.session.name}}</p>
+				<p>{{request.session.location}}</p>
+				<p>{{request.session.language}}</p>
+				<p>{{request.session.comment}}</p>
+			</div>
+			<form action='/goback', method='post'>
+				{% csrf_token %}
+				<input class='space go_back' type='submit' value='Go Back' name='goback'>
+			</form>
+		</div>
+	</body>
+</html>

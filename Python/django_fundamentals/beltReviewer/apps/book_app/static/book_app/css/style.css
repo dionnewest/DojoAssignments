@@ -1,0 +1,13 @@
+/**{
+	border:1px solid black;
+}*/
+
+.left, .right{
+	border:2px solid black;
+	width:500px;
+}
+
+
+.title h2{
+	margin:0px;
+}

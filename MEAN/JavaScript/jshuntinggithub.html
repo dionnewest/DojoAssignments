@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hunting Github</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+</head>
+<body>
+	<button id="btn">This is Some Button</button>
+	<p id="name"></p>
+	<script type="text/javascript">
+		// Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+		document.getElementById('btn').addEventListener('click', whatToDoOnClick)
+		function whatToDoOnClick(){
+			$.get("https://api.github.com/users/dionnewest", displayName)
+		}
+		function displayName(data) {
+			console.log(data.name);
+			let name = document.createElement("h1");
+			name.innerHTML = data.name;
+			document.getElementById("name").appendChild(name)
+		}
+	</script>
+</body>
+</html>

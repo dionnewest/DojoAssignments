@@ -1,0 +1,11 @@
+<form (submit)="createNote()">
+  <div>
+    <label>Note: 
+      <input type="text" name="note" [(ngModel)]="newNote.note">
+    </label>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+<div>
+  <p *ngFor="let error of errors">{{ error }}</p>
+</div>
