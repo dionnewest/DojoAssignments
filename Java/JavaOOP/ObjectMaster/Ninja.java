@@ -7,7 +7,7 @@ public class Ninja extends Human{
 		health += stealth;
 		x.health -= stealth;
 	}
-	public void runAay() {
+	public void runAway() {
 		health -= 10;
 	}
 
